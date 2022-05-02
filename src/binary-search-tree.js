@@ -66,7 +66,6 @@ class BinarySearchTree {
   }
 
   find(data) {
-    // throw new NotImplementedError('Not implemented');
     return findNode(this.parent, data);
 
     function findNode(node, value) {
@@ -109,8 +108,8 @@ class BinarySearchTree {
         }
 
         let newNode = minNode(node.right);
-        node.data = newNode.data;
-        node.right = removeNode(node.right, newNode.data);
+        node.value = newNode.value;
+        node.right = removeNode(node.right, newNode.value);
 
         function minNode(node) {
           if (node.left === null) {
@@ -150,18 +149,21 @@ class BinarySearchTree {
 }
 
 const tree = new BinarySearchTree();
-tree.add(5);
-tree.add(15);
-tree.add(13);
-tree.add(20);
-tree.add(18);
-tree.add(25);
+      tree.add(9);
+      tree.add(14);
+      tree.add(2);
+      tree.add(6);
+      tree.add(128);
+      tree.add(8);
+      tree.add(31);
+      tree.add(54);
+      tree.add(1);
+      tree.remove(14);
+      tree.remove(8);
+      tree.remove(9);
+      res = tree.has(128)
 
-tree.remove(25);
-
-
-// res = tree.find(8).data
-res = tree.root().data;
+res = tree.root()
 console.log('res= ', res)
 
 module.exports = {
